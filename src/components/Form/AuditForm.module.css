@@ -139,3 +139,9 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+@media (max-width: 480px) {
+  .toolGrid {
+    grid-template-columns: 1fr;
+  }
+}
