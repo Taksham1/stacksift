@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Share2, Mail, ExternalLink, TrendingDown, CheckCircle, AlertCircle } from 'lucide-react';
+import { Share2, Mail, ExternalLink, TrendingDown, CheckCircle, AlertCircle, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { AuditOutput, ToolAuditResult } from '@/lib/audit-engine';
 import styles from './AuditResults.module.css';

@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 export async function POST(req: Request) {
   try {
@@ -18,7 +18,7 @@ export async function POST(req: Request) {
     }
 
     // 2. Send Email
-    if (process.env.RESEND_API_KEY) {
+    if (resend) {
       await resend.emails.send({
         from: 'StackSift <audits@stacksift.ai>',
         to: email,
