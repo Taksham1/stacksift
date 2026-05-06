@@ -1,15 +1,15 @@
 import { NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
 
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY || '',
-});
+const anthropic = process.env.ANTHROPIC_API_KEY 
+  ? new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
+  : null;
 
 export async function POST(req: Request) {
   try {
     const { totalMonthlySpend, totalAnnualSavings, useCase, teamSize, toolBreakdown } = await req.json();
 
-    if (!process.env.ANTHROPIC_API_KEY) {
+    if (!anthropic) {
       throw new Error('Missing API Key');
     }
 
